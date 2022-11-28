@@ -4,6 +4,6 @@
 
 ## Liens utiles
 
-Le google drive :
-https://docs.google.com/document/d/1rR1yyt_xML07FBX1oqzWpBJq6dfoGcAIpQu7T0TXaEI/edit?usp=share_link
+Le google drive (lecteur sauf pour les comptes google ajoutés en tant qu'éditeur) :
+https://drive.google.com/drive/folders/18edLeow0fpwSNfqGNUwJy8k49WtRPeC3?usp=share_link
 
