@@ -1,7 +1,6 @@
 # sec3-projet
 
-## Lien du drive :
-https://drive.google.com/drive/folders/18edLeow0fpwSNfqGNUwJy8k49WtRPeC3
+
 
 ## Getting started
 
