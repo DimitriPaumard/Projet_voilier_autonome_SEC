@@ -100,6 +100,7 @@ int main(void)
   while (1)
   {
 	  //does it merge ?
+	  //does it merge v2 ?
 	  //it should be update in a new branch
     /* USER CODE END WHILE */
 
