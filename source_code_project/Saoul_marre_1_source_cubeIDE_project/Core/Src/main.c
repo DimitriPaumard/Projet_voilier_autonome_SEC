@@ -101,6 +101,7 @@ int main(void)
   {
 	  //does it merge ?
 	  //it should be update in a new branch
+	  // mec, ça devrait merger avec le main fdp
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
