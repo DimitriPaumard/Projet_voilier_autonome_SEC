@@ -60,8 +60,8 @@ all: main-build
 main-build: Saoul_marre_1_source_cubeIDE_project.elf secondary-outputs
 
 # Tool invocations
-Saoul_marre_1_source_cubeIDE_project.elf Saoul_marre_1_source_cubeIDE_project.map: $(OBJS) $(USER_OBJS) /home/youn/Documents/COURS/Voilier/Projet_voilier_autonome_SEC/source_code_project/Saoul_marre_1_source_cubeIDE_project/STM32F401RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Saoul_marre_1_source_cubeIDE_project.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/youn/Documents/COURS/Voilier/Projet_voilier_autonome_SEC/source_code_project/Saoul_marre_1_source_cubeIDE_project/STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Saoul_marre_1_source_cubeIDE_project.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Saoul_marre_1_source_cubeIDE_project.elf Saoul_marre_1_source_cubeIDE_project.map: $(OBJS) $(USER_OBJS) C:\Users\Dimitri\ Paumard\Desktop\cours_SEC3\Projet\Projet_voilier_autonome_SEC\source_code_project\Saoul_marre_1_source_cubeIDE_project\STM32F401RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Saoul_marre_1_source_cubeIDE_project.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Dimitri Paumard\Desktop\cours_SEC3\Projet\Projet_voilier_autonome_SEC\source_code_project\Saoul_marre_1_source_cubeIDE_project\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Saoul_marre_1_source_cubeIDE_project.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -74,6 +74,10 @@ void NMI_Handler(void)
   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
   while (1)
   {
+	  if(HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin)== GPIO_PIN_RESET)
+	  {
+
+	  }
   }
   /* USER CODE END NonMaskableInt_IRQn 1 */
 }
