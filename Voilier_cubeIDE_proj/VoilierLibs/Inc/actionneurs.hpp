@@ -6,12 +6,12 @@
  */
 
 #include "stm32f4xx_hal.h"
-TIM_HandleTypeDef htim4;
+#include "tim.h"
+
 
 #define LEFT true
 #define RIGHT false
 
-static void MX_TIM4_Init(void);
 void setAngle(int angle);
 void safran_init(void);
 
@@ -29,7 +29,12 @@ void voileInit(){
 }
 
 
-//TODO - verifier implem
+/**
+  * @brief setSafranAngle Function. Configure le compare register du TIM4 channel 1.
+  * @param angle : float [+45; -45] SENS TRIGONOMETRIQUE; - a gauche et + a droite
+  * @retval None
+  * TODO : verifier implem
+  */
 void setSafranAngle(float angle){
 	int mid = 70;
 	int max = 100;
@@ -52,61 +57,19 @@ void setSafranAngle(float angle){
 	__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_1, output);
 }
 
-static void MX_TIM4_Init(void)
-{
 
-  /* USER CODE BEGIN TIM4_Init 0 */
-
-  /* USER CODE END TIM4_Init 0 */
-
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-  TIM_OC_InitTypeDef sConfigOC = {0};
-
-  /* USER CODE BEGIN TIM4_Init 1 */
-
-  /* USER CODE END TIM4_Init 1 */
-  htim4.Instance = TIM4;
-  htim4.Init.Prescaler = 19;
-  htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim4.Init.Period = 1000;
-  htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim4, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_TIM_PWM_Init(&htim4) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 500;
-  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
-  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-  if (HAL_TIM_PWM_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM4_Init 2 */
-
-  /* USER CODE END TIM4_Init 2 */
-  HAL_TIM_MspPostInit(&htim4);
-
+/**
+  * @brief setVoileAngle Function. Configure le compare register du TIM4 channel 2.
+  * @param angle : float [+90; -90] SENS TRIGONOMETRIQUE; - a gauche et + a droite
+  * @retval None
+  * TODO : verifier implem
+  */
+void setVoileAngle(float angle) {
+	int mid = 70;
+	int max = 100;
+	int min = 50;
+	int coeff_dir_right = 45-0/max-mid ;
+	int coeff_dir_left = 45-0/mid-min ;
+	int output =  mid;
+	__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_2, output);
 }
-
-
-
-
-

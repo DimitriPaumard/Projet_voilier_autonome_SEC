@@ -1,8 +1,7 @@
-../VoilierLibs/Inc/actionneurs.hpp:24:6:void safran_init()	8	static
-../VoilierLibs/Inc/actionneurs.hpp:33:6:void setSafranAngle(float)	40	static
-../VoilierLibs/Inc/actionneurs.hpp:55:13:void MX_TIM4_Init()	64	static
-../Core/Src/main.cpp:67:5:int main()	8	static
-../Core/Src/main.cpp:138:6:void SystemClock_Config()	88	static
-../Core/Src/main.cpp:186:13:void MX_USART2_UART_Init()	8	static
-../Core/Src/main.cpp:219:13:void MX_GPIO_Init()	48	static
-../Core/Src/main.cpp:255:6:void Error_Handler()	4	static,ignoring_inline_asm
+../VoilierLibs/Inc/actionneurs.hpp:19:6:safranInit	8	static
+../VoilierLibs/Inc/actionneurs.hpp:27:6:voileInit	4	static
+../VoilierLibs/Inc/actionneurs.hpp:38:6:setSafranAngle	40	static
+../VoilierLibs/Inc/actionneurs.hpp:67:6:setVoileAngle	40	static
+../Core/Src/main.c:65:5:main	8	static
+../Core/Src/main.c:137:6:SystemClock_Config	88	static
+../Core/Src/main.c:187:6:Error_Handler	4	static,ignoring_inline_asm
