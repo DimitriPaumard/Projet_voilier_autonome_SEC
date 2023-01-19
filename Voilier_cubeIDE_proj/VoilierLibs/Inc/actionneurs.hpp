@@ -16,7 +16,7 @@ void setAngle(int angle);
 void safran_init(void);
 
 
-void safran_init(){
+void safranInit(){
 	MX_TIM4_Init();
 	/* USER CODE BEGIN 2 */
 	HAL_TIM_Base_Start(&htim4);
@@ -24,14 +24,19 @@ void safran_init(){
 	HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_1);
 }
 
+void voileInit(){
+
+}
+
+
 //TODO - verifier implem
 void setSafranAngle(float angle){
 	int mid = 70;
 	int max = 100;
 	int min = 50;
 	int coeff_dir_right = 45-0/max-mid ;
-	int coeff_dir_left = 45-0/min-mid ;
-	int output=  mid;
+	int coeff_dir_left = 45-0/mid-min ;
+	int output =  mid;
 	// on considere que l'angle max est de +/- 45°
 	if (angle > 45) angle = 45;
 	if (angle < -45) angle = -45;
@@ -42,9 +47,9 @@ void setSafranAngle(float angle){
 	} else if (angle < 0) //on tourne à gauche
 	{
 		//on prend la valeur min comme reference
-		output = mid + ( (-1 * angle)/coeff_dir_left);
+		output = mid - (angle/coeff_dir_left);
 	}
-	__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_1, angle);
+	__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_1, output);
 }
 
 static void MX_TIM4_Init(void)
